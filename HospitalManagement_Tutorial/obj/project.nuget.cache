@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "YD+oMGmGeeyt5KlHP2zDRXeuzCxlIjWnFb6Zj0c9gedmndYdFSsef2wnGGJU+oDL0kSLWBT4wRjlkW/joJVz0g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Xcoga\\source\\repos\\HospitalManagement_Tutorial\\HospitalManagement_Tutorial\\HospitalManagement_Tutorial.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Xcoga\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Xcoga\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Xcoga\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Xcoga\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Xcoga\\.nuget\\packages\\system.data.sqlclient\\4.9.0\\system.data.sqlclient.4.9.0.nupkg.sha512"
+  ],
+  "logs": []
+}
