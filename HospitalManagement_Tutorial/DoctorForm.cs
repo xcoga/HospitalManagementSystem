@@ -137,18 +137,13 @@ namespace HospitalManagement_Tutorial
 
         private void DoctorGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DoctorGV.SelectedRows.Count > 0)
-            {
+
                 DocID.Text = DoctorGV.SelectedRows[0].Cells[0].Value.ToString();
                 DocName.Text = DoctorGV.SelectedRows[0].Cells[1].Value.ToString();
                 DocExperience.Text = DoctorGV.SelectedRows[0].Cells[2].Value.ToString();
                 DocPass.Text = DoctorGV.SelectedRows[0].Cells[3].Value.ToString();
-            }
-            else
-            {
-                // Handle the case where no row is selected
-                MessageBox.Show("No row selected!");
-            }
+            
+
         }
     }
 }

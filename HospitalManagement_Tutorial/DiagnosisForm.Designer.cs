@@ -31,18 +31,18 @@
             panel1 = new Panel();
             label1 = new Label();
             app_title_text = new Label();
-            dataGridView1 = new DataGridView();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            DiagnosisGV = new DataGridView();
+            MedicinesTb = new TextBox();
+            DiagnosisTb = new TextBox();
+            SymptomsTb = new TextBox();
+            PatientNameTb = new TextBox();
+            DiagIdTb = new TextBox();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            comboBox1 = new ComboBox();
-            label2 = new Label();
+            PatientIdTb = new ComboBox();
+            DiagnosisListTb = new Label();
             panel2 = new Panel();
             label8 = new Label();
             label7 = new Label();
@@ -51,7 +51,7 @@
             label4 = new Label();
             label3 = new Label();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DiagnosisGV).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -92,60 +92,64 @@
             app_title_text.Text = "HOSPITAL MANAGEMENT SYSTEM";
             app_title_text.TextAlign = ContentAlignment.TopCenter;
             // 
-            // dataGridView1
+            // DiagnosisGV
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(51, 367);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1158, 237);
-            dataGridView1.TabIndex = 6;
+            DiagnosisGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DiagnosisGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DiagnosisGV.Location = new Point(51, 367);
+            DiagnosisGV.Name = "DiagnosisGV";
+            DiagnosisGV.ReadOnly = true;
+            DiagnosisGV.RowTemplate.Height = 25;
+            DiagnosisGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DiagnosisGV.Size = new Size(1158, 237);
+            DiagnosisGV.TabIndex = 6;
+            DiagnosisGV.CellContentClick += DiagnosisGV_CellContentClick;
             // 
-            // textBox2
+            // MedicinesTb
             // 
-            textBox2.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox2.Location = new Point(278, 204);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(221, 29);
-            textBox2.TabIndex = 8;
-            textBox2.Text = "Medicines";
+            MedicinesTb.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            MedicinesTb.Location = new Point(278, 204);
+            MedicinesTb.Name = "MedicinesTb";
+            MedicinesTb.Size = new Size(221, 29);
+            MedicinesTb.TabIndex = 8;
+            MedicinesTb.Text = "Medicines";
             // 
-            // textBox3
+            // DiagnosisTb
             // 
-            textBox3.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox3.Location = new Point(278, 169);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(221, 29);
-            textBox3.TabIndex = 9;
-            textBox3.Text = "Diagnosis";
+            DiagnosisTb.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            DiagnosisTb.Location = new Point(278, 169);
+            DiagnosisTb.Name = "DiagnosisTb";
+            DiagnosisTb.Size = new Size(221, 29);
+            DiagnosisTb.TabIndex = 9;
+            DiagnosisTb.Text = "Diagnosis";
             // 
-            // textBox4
+            // SymptomsTb
             // 
-            textBox4.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox4.Location = new Point(278, 133);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(221, 29);
-            textBox4.TabIndex = 10;
-            textBox4.Text = "Symptoms";
+            SymptomsTb.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            SymptomsTb.Location = new Point(278, 133);
+            SymptomsTb.Name = "SymptomsTb";
+            SymptomsTb.Size = new Size(221, 29);
+            SymptomsTb.TabIndex = 10;
+            SymptomsTb.Text = "Symptoms";
             // 
-            // textBox5
+            // PatientNameTb
             // 
-            textBox5.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox5.Location = new Point(51, 204);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(221, 29);
-            textBox5.TabIndex = 11;
-            textBox5.Text = "PatientName";
+            PatientNameTb.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            PatientNameTb.Location = new Point(51, 204);
+            PatientNameTb.Name = "PatientNameTb";
+            PatientNameTb.Size = new Size(221, 29);
+            PatientNameTb.TabIndex = 11;
+            PatientNameTb.Text = "PatientName";
             // 
-            // textBox6
+            // DiagIdTb
             // 
-            textBox6.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox6.Location = new Point(51, 133);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(221, 29);
-            textBox6.TabIndex = 12;
-            textBox6.Text = "DiagnosisID";
-            textBox6.TextChanged += textBox6_TextChanged;
+            DiagIdTb.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            DiagIdTb.Location = new Point(51, 133);
+            DiagIdTb.Name = "DiagIdTb";
+            DiagIdTb.Size = new Size(221, 29);
+            DiagIdTb.TabIndex = 12;
+            DiagIdTb.Text = "DiagnosisID";
+            DiagIdTb.TextChanged += textBox6_TextChanged;
             // 
             // button4
             // 
@@ -171,6 +175,7 @@
             button3.TabIndex = 15;
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -195,29 +200,31 @@
             button1.TabIndex = 13;
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // comboBox1
+            // PatientIdTb
             // 
-            comboBox1.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(91, 168);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 30);
-            comboBox1.TabIndex = 17;
-            comboBox1.Text = "PatientID";
+            PatientIdTb.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            PatientIdTb.FormattingEnabled = true;
+            PatientIdTb.Location = new Point(91, 168);
+            PatientIdTb.Name = "PatientIdTb";
+            PatientIdTb.Size = new Size(121, 30);
+            PatientIdTb.TabIndex = 17;
+            PatientIdTb.Text = "PatientID";
+            PatientIdTb.SelectedIndexChanged += PatientIdTb_SelectedIndexChanged;
             // 
-            // label2
+            // DiagnosisListTb
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Font = new Font("UD Digi Kyokasho N-B", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.Coral;
-            label2.Location = new Point(519, 330);
-            label2.Name = "label2";
-            label2.Size = new Size(196, 31);
-            label2.TabIndex = 18;
-            label2.Text = "Patients List";
-            label2.TextAlign = ContentAlignment.TopCenter;
+            DiagnosisListTb.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DiagnosisListTb.AutoSize = true;
+            DiagnosisListTb.Font = new Font("UD Digi Kyokasho N-B", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            DiagnosisListTb.ForeColor = Color.Coral;
+            DiagnosisListTb.Location = new Point(519, 330);
+            DiagnosisListTb.Name = "DiagnosisListTb";
+            DiagnosisListTb.Size = new Size(210, 31);
+            DiagnosisListTb.TabIndex = 18;
+            DiagnosisListTb.Text = "Diagnosis List";
+            DiagnosisListTb.TextAlign = ContentAlignment.TopCenter;
             // 
             // panel2
             // 
@@ -318,24 +325,24 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1240, 626);
             Controls.Add(panel2);
-            Controls.Add(label2);
-            Controls.Add(comboBox1);
+            Controls.Add(DiagnosisListTb);
+            Controls.Add(PatientIdTb);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(dataGridView1);
+            Controls.Add(DiagIdTb);
+            Controls.Add(PatientNameTb);
+            Controls.Add(SymptomsTb);
+            Controls.Add(DiagnosisTb);
+            Controls.Add(MedicinesTb);
+            Controls.Add(DiagnosisGV);
             Controls.Add(panel1);
             Name = "DiagnosisForm";
             Text = "DiagnosisForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DiagnosisGV).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -347,18 +354,18 @@
         private Panel panel1;
         private Label label1;
         private Label app_title_text;
-        private DataGridView dataGridView1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private DataGridView DiagnosisGV;
+        private TextBox MedicinesTb;
+        private TextBox DiagnosisTb;
+        private TextBox SymptomsTb;
+        private TextBox PatientNameTb;
+        private TextBox DiagIdTb;
         private Button button4;
         private Button button3;
         private Button button2;
         private Button button1;
-        private ComboBox comboBox1;
-        private Label label2;
+        private ComboBox PatientIdTb;
+        private Label DiagnosisListTb;
         private Panel panel2;
         private Label label3;
         private Label label7;

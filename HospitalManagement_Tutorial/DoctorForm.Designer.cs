@@ -137,6 +137,7 @@
             DoctorGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DoctorGV.Location = new Point(463, 126);
             DoctorGV.Name = "DoctorGV";
+            DoctorGV.ReadOnly = true;
             dataGridViewCellStyle2.Font = new Font("UD Digi Kyokasho N-B", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             DoctorGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             DoctorGV.RowTemplate.Height = 25;

@@ -72,6 +72,7 @@
             button3.TabIndex = 18;
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -84,6 +85,7 @@
             button2.TabIndex = 17;
             button2.Text = "Update";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -103,7 +105,9 @@
             patientGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             patientGV.Location = new Point(463, 132);
             patientGV.Name = "patientGV";
+            patientGV.ReadOnly = true;
             patientGV.RowTemplate.Height = 25;
+            patientGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             patientGV.Size = new Size(688, 448);
             patientGV.TabIndex = 15;
             patientGV.CellContentClick += dataGridView1_CellContentClick;
