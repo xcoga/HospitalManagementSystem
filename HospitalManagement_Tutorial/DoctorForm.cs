@@ -138,12 +138,17 @@ namespace HospitalManagement_Tutorial
         private void DoctorGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-                DocID.Text = DoctorGV.SelectedRows[0].Cells[0].Value.ToString();
-                DocName.Text = DoctorGV.SelectedRows[0].Cells[1].Value.ToString();
-                DocExperience.Text = DoctorGV.SelectedRows[0].Cells[2].Value.ToString();
-                DocPass.Text = DoctorGV.SelectedRows[0].Cells[3].Value.ToString();
-            
+            DocID.Text = DoctorGV.SelectedRows[0].Cells[0].Value.ToString();
+            DocName.Text = DoctorGV.SelectedRows[0].Cells[1].Value.ToString();
+            DocExperience.Text = DoctorGV.SelectedRows[0].Cells[2].Value.ToString();
+            DocPass.Text = DoctorGV.SelectedRows[0].Cells[3].Value.ToString();
 
+
+        }
+
+        private void DoctorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

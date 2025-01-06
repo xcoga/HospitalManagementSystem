@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             app_title_text = new Label();
             label1 = new Label();
-            progressBar1 = new ProgressBar();
+            progressBar = new ProgressBar();
             label2 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // app_title_text
@@ -60,12 +62,13 @@
             label1.Text = "Version 1.0";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // progressBar1
+            // progressBar
             // 
-            progressBar1.Location = new Point(260, 161);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(248, 56);
-            progressBar1.TabIndex = 4;
+            progressBar.Location = new Point(260, 161);
+            progressBar.Name = "progressBar";
+            progressBar.Size = new Size(248, 56);
+            progressBar.TabIndex = 4;
+            progressBar.Click += progressBar1_Click;
             // 
             // label2
             // 
@@ -81,6 +84,10 @@
             label2.TextAlign = ContentAlignment.TopCenter;
             label2.Click += label2_Click;
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
             // SplashForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -88,11 +95,13 @@
             BackColor = Color.Purple;
             ClientSize = new Size(800, 450);
             Controls.Add(label2);
-            Controls.Add(progressBar1);
+            Controls.Add(progressBar);
             Controls.Add(label1);
             Controls.Add(app_title_text);
             Name = "SplashForm";
             Text = "SplashForm";
+            FormClosing += SplashForm_FormClosing;
+            Load += SplashForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -101,7 +110,8 @@
 
         private Label app_title_text;
         private Label label1;
-        private ProgressBar progressBar1;
+        private ProgressBar progressBar;
         private Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

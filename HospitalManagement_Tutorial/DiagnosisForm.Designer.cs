@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiagnosisForm));
             panel1 = new Panel();
             label1 = new Label();
             app_title_text = new Label();
@@ -43,16 +44,23 @@
             button1 = new Button();
             PatientIdTb = new ComboBox();
             DiagnosisListTb = new Label();
-            panel2 = new Panel();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            label5 = new Label();
+            diagnsummary = new Panel();
+            printBtn = new Button();
+            Medicineslbl = new TextBox();
+            Symptomslbl = new TextBox();
+            Diagnosislbl = new TextBox();
+            PatientNamelbl = new TextBox();
+            Filler4 = new Label();
+            Filler2 = new Label();
+            filler3 = new Label();
+            Filler = new Label();
             label4 = new Label();
             label3 = new Label();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DiagnosisGV).BeginInit();
-            panel2.SuspendLayout();
+            diagnsummary.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -96,12 +104,13 @@
             // 
             DiagnosisGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DiagnosisGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DiagnosisGV.Location = new Point(51, 367);
+            DiagnosisGV.Location = new Point(51, 394);
+            DiagnosisGV.MultiSelect = false;
             DiagnosisGV.Name = "DiagnosisGV";
             DiagnosisGV.ReadOnly = true;
             DiagnosisGV.RowTemplate.Height = 25;
             DiagnosisGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DiagnosisGV.Size = new Size(1158, 237);
+            DiagnosisGV.Size = new Size(1158, 210);
             DiagnosisGV.TabIndex = 6;
             DiagnosisGV.CellContentClick += DiagnosisGV_CellContentClick;
             // 
@@ -188,6 +197,7 @@
             button2.TabIndex = 14;
             button2.Text = "Update";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -219,78 +229,128 @@
             DiagnosisListTb.AutoSize = true;
             DiagnosisListTb.Font = new Font("UD Digi Kyokasho N-B", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             DiagnosisListTb.ForeColor = Color.Coral;
-            DiagnosisListTb.Location = new Point(519, 330);
+            DiagnosisListTb.Location = new Point(519, 360);
             DiagnosisListTb.Name = "DiagnosisListTb";
             DiagnosisListTb.Size = new Size(210, 31);
             DiagnosisListTb.TabIndex = 18;
             DiagnosisListTb.Text = "Diagnosis List";
             DiagnosisListTb.TextAlign = ContentAlignment.TopCenter;
             // 
-            // panel2
+            // diagnsummary
             // 
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(label3);
-            panel2.Location = new Point(530, 106);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(679, 221);
-            panel2.TabIndex = 19;
+            diagnsummary.Controls.Add(printBtn);
+            diagnsummary.Controls.Add(Medicineslbl);
+            diagnsummary.Controls.Add(Symptomslbl);
+            diagnsummary.Controls.Add(Diagnosislbl);
+            diagnsummary.Controls.Add(PatientNamelbl);
+            diagnsummary.Controls.Add(Filler4);
+            diagnsummary.Controls.Add(Filler2);
+            diagnsummary.Controls.Add(filler3);
+            diagnsummary.Controls.Add(Filler);
+            diagnsummary.Controls.Add(label4);
+            diagnsummary.Controls.Add(label3);
+            diagnsummary.Location = new Point(530, 106);
+            diagnsummary.Name = "diagnsummary";
+            diagnsummary.Size = new Size(679, 237);
+            diagnsummary.TabIndex = 19;
             // 
-            // label8
+            // printBtn
             // 
-            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label8.AutoSize = true;
-            label8.Font = new Font("UD Digi Kyokasho N-B", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.ForeColor = Color.Coral;
-            label8.Location = new Point(389, 128);
-            label8.Name = "label8";
-            label8.Size = new Size(80, 18);
-            label8.TabIndex = 8;
-            label8.Text = "Medicines";
-            label8.TextAlign = ContentAlignment.TopCenter;
+            printBtn.BackColor = Color.Purple;
+            printBtn.Font = new Font("UD Digi Kyokasho N-B", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            printBtn.ForeColor = Color.Coral;
+            printBtn.Location = new Point(295, 195);
+            printBtn.Name = "printBtn";
+            printBtn.Size = new Size(88, 39);
+            printBtn.TabIndex = 20;
+            printBtn.Text = "Print";
+            printBtn.UseVisualStyleBackColor = false;
+            printBtn.Click += button5_Click;
             // 
-            // label7
+            // Medicineslbl
             // 
-            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label7.AutoSize = true;
-            label7.Font = new Font("UD Digi Kyokasho N-B", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.Coral;
-            label7.Location = new Point(389, 62);
-            label7.Name = "label7";
-            label7.Size = new Size(80, 18);
-            label7.TabIndex = 7;
-            label7.Text = "Diagnosis";
-            label7.TextAlign = ContentAlignment.TopCenter;
-            label7.Click += label7_Click;
+            Medicineslbl.Location = new Point(389, 149);
+            Medicineslbl.Multiline = true;
+            Medicineslbl.Name = "Medicineslbl";
+            Medicineslbl.Size = new Size(274, 48);
+            Medicineslbl.TabIndex = 12;
             // 
-            // label6
+            // Symptomslbl
             // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label6.AutoSize = true;
-            label6.Font = new Font("UD Digi Kyokasho N-B", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.Coral;
-            label6.Location = new Point(60, 128);
-            label6.Name = "label6";
-            label6.Size = new Size(72, 18);
-            label6.TabIndex = 6;
-            label6.Text = "Symptoms";
-            label6.TextAlign = ContentAlignment.TopCenter;
+            Symptomslbl.Location = new Point(60, 149);
+            Symptomslbl.Multiline = true;
+            Symptomslbl.Name = "Symptomslbl";
+            Symptomslbl.Size = new Size(232, 48);
+            Symptomslbl.TabIndex = 11;
             // 
-            // label5
+            // Diagnosislbl
             // 
-            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label5.AutoSize = true;
-            label5.Font = new Font("UD Digi Kyokasho N-B", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.Coral;
-            label5.Location = new Point(60, 62);
-            label5.Name = "label5";
-            label5.Size = new Size(96, 18);
-            label5.TabIndex = 5;
-            label5.Text = "PatientName";
-            label5.TextAlign = ContentAlignment.TopCenter;
+            Diagnosislbl.Location = new Point(389, 83);
+            Diagnosislbl.Multiline = true;
+            Diagnosislbl.Name = "Diagnosislbl";
+            Diagnosislbl.Size = new Size(274, 42);
+            Diagnosislbl.TabIndex = 10;
+            // 
+            // PatientNamelbl
+            // 
+            PatientNamelbl.Location = new Point(60, 83);
+            PatientNamelbl.Multiline = true;
+            PatientNamelbl.Name = "PatientNamelbl";
+            PatientNamelbl.Size = new Size(222, 42);
+            PatientNamelbl.TabIndex = 9;
+            // 
+            // Filler4
+            // 
+            Filler4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Filler4.AutoSize = true;
+            Filler4.Font = new Font("UD Digi Kyokasho N-B", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Filler4.ForeColor = Color.Coral;
+            Filler4.Location = new Point(389, 128);
+            Filler4.Name = "Filler4";
+            Filler4.Size = new Size(80, 18);
+            Filler4.TabIndex = 8;
+            Filler4.Text = "Medicines";
+            Filler4.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // Filler2
+            // 
+            Filler2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Filler2.AutoSize = true;
+            Filler2.Font = new Font("UD Digi Kyokasho N-B", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Filler2.ForeColor = Color.Coral;
+            Filler2.Location = new Point(389, 62);
+            Filler2.Name = "Filler2";
+            Filler2.Size = new Size(80, 18);
+            Filler2.TabIndex = 7;
+            Filler2.Text = "Diagnosis";
+            Filler2.TextAlign = ContentAlignment.TopCenter;
+            Filler2.Click += label7_Click;
+            // 
+            // filler3
+            // 
+            filler3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            filler3.AutoSize = true;
+            filler3.Font = new Font("UD Digi Kyokasho N-B", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            filler3.ForeColor = Color.Coral;
+            filler3.Location = new Point(60, 128);
+            filler3.Name = "filler3";
+            filler3.Size = new Size(72, 18);
+            filler3.TabIndex = 6;
+            filler3.Text = "Symptoms";
+            filler3.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // Filler
+            // 
+            Filler.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Filler.AutoSize = true;
+            Filler.Font = new Font("UD Digi Kyokasho N-B", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Filler.ForeColor = Color.Coral;
+            Filler.Location = new Point(60, 62);
+            Filler.Name = "Filler";
+            Filler.Size = new Size(96, 18);
+            Filler.TabIndex = 5;
+            Filler.Text = "PatientName";
+            Filler.TextAlign = ContentAlignment.TopCenter;
             // 
             // label4
             // 
@@ -319,12 +379,28 @@
             label3.TextAlign = ContentAlignment.TopCenter;
             label3.Click += label3_Click;
             // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            printPreviewDialog1.Load += printPreviewDialog1_Load;
+            // 
             // DiagnosisForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1240, 626);
-            Controls.Add(panel2);
+            Controls.Add(diagnsummary);
             Controls.Add(DiagnosisListTb);
             Controls.Add(PatientIdTb);
             Controls.Add(button4);
@@ -340,11 +416,12 @@
             Controls.Add(panel1);
             Name = "DiagnosisForm";
             Text = "DiagnosisForm";
+            FormClosing += DiagnosisForm_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DiagnosisGV).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            diagnsummary.ResumeLayout(false);
+            diagnsummary.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -366,12 +443,19 @@
         private Button button1;
         private ComboBox PatientIdTb;
         private Label DiagnosisListTb;
-        private Panel panel2;
+        private Panel diagnsummary;
         private Label label3;
-        private Label label7;
-        private Label label6;
-        private Label label5;
+        private Label Filler2;
+        private Label filler3;
+        private Label Filler;
         private Label label4;
-        private Label label8;
+        private Label Filler4;
+        private TextBox Medicineslbl;
+        private TextBox Symptomslbl;
+        private TextBox Diagnosislbl;
+        private TextBox PatientNamelbl;
+        private Button printBtn;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
     }
 }

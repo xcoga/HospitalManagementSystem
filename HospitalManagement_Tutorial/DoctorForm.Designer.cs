@@ -215,6 +215,7 @@
             Controls.Add(panel1);
             Name = "DoctorForm";
             Text = "DoctorForm";
+            FormClosing += DoctorForm_FormClosing;
             Load += DoctorForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

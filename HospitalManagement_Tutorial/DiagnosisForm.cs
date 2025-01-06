@@ -195,14 +195,82 @@ namespace HospitalManagement_Tutorial
         private void DiagnosisGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-             DiagIdTb.Text = DiagnosisGV.SelectedRows[0].Cells[0].Value.ToString();
-             PatientIdTb.Text = DiagnosisGV.SelectedRows[0].Cells[1].Value.ToString();
-             PatientNameTb.Text = DiagnosisGV.SelectedRows[0].Cells[2].Value.ToString();
-             SymptomsTb.Text = DiagnosisGV.SelectedRows[0].Cells[3].Value.ToString();
-             DiagnosisTb.Text = DiagnosisGV.SelectedRows[0].Cells[4].Value.ToString();
-             MedicinesTb.Text = DiagnosisGV.SelectedRows[0].Cells[5].Value.ToString();
-           
+            DiagIdTb.Text = DiagnosisGV.SelectedRows[0].Cells[0].Value.ToString();
+            PatientIdTb.Text = DiagnosisGV.SelectedRows[0].Cells[1].Value.ToString();
+            PatientNameTb.Text = DiagnosisGV.SelectedRows[0].Cells[2].Value.ToString();
+            SymptomsTb.Text = DiagnosisGV.SelectedRows[0].Cells[3].Value.ToString();
+            DiagnosisTb.Text = DiagnosisGV.SelectedRows[0].Cells[4].Value.ToString();
+            MedicinesTb.Text = DiagnosisGV.SelectedRows[0].Cells[5].Value.ToString();
 
+            PatientNamelbl.Text = DiagnosisGV.SelectedRows[0].Cells[2].Value.ToString();
+            Medicineslbl.Text = DiagnosisGV.SelectedRows[0].Cells[5].Value.ToString();
+            Diagnosislbl.Text = DiagnosisGV.SelectedRows[0].Cells[4].Value.ToString();
+            Symptomslbl.Text = DiagnosisGV.SelectedRows[0].Cells[3].Value.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string query = "Update DiagnosisTbl set PatId=@PatId, PatName=@PatName, Symptoms=@Symptoms, Diagnosis=@Diagnosis, Medicines=@Medicines " +
+    "where DiagId=@DiagId";
+
+            using (SqlCommand cmd = new SqlCommand(query, Con))
+            {
+                cmd.Parameters.AddWithValue("@PatId", PatientIdTb.Text);
+                cmd.Parameters.AddWithValue("@PatName", PatientNameTb.Text);
+                cmd.Parameters.AddWithValue("@Symptoms", SymptomsTb.Text);
+                cmd.Parameters.AddWithValue("@Diagnosis", DiagnosisTb.Text);
+                cmd.Parameters.AddWithValue("@Medicines", MedicinesTb.Text);
+                cmd.Parameters.AddWithValue("@DiagId", DiagIdTb.Text);
+
+                if (string.IsNullOrWhiteSpace(PatientIdTb.Text) ||
+                    string.IsNullOrWhiteSpace(PatientNameTb.Text) ||
+                    string.IsNullOrWhiteSpace(SymptomsTb.Text) ||
+                    string.IsNullOrWhiteSpace(DiagnosisTb.Text) ||
+                    string.IsNullOrWhiteSpace(MedicinesTb.Text) ||
+                    PatientIdTb.Text == "PatientID" ||
+                    string.IsNullOrWhiteSpace(DiagIdTb.Text))
+                {
+                    MessageBox.Show("Please fill in all boxes!");
+                }
+                else
+                {
+                    Con.Open();
+                    cmd.ExecuteNonQuery();
+                    Con.Close();
+                    populate();
+                    MessageBox.Show("Patient Successfully Updated");
+                }
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font font = new Font("Century Gothic", 12, FontStyle.Regular);
+            Brush brush = Brushes.Black;
+            Point position = new Point(130, 100); // Ensure valid X, Y
+
+            string text = $"{label3?.Text}\n {PatientNamelbl?.Text} {Diagnosislbl?.Text} {Symptomslbl?.Text} {Medicineslbl?.Text}";
+
+            e.Graphics.DrawString(text, font, brush, position);
+
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DiagnosisForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -97,6 +97,7 @@
             password_input_textbox.Name = "password_input_textbox";
             password_input_textbox.Size = new Size(228, 27);
             password_input_textbox.TabIndex = 3;
+            password_input_textbox.UseSystemPasswordChar = true;
             // 
             // username_text
             // 
@@ -136,8 +137,9 @@
             clear_button.TabIndex = 6;
             clear_button.Text = "Clear";
             clear_button.UseVisualStyleBackColor = false;
+            clear_button.Click += clear_button_Click;
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -150,8 +152,9 @@
             Controls.Add(loginButton);
             Controls.Add(top_panel);
             FormBorderStyle = FormBorderStyle.Fixed3D;
-            Name = "Form1";
+            Name = "Login";
             Text = "Form1";
+            FormClosing += Login_FormClosing;
             Load += Form1_Load;
             top_panel.ResumeLayout(false);
             top_panel.PerformLayout();

@@ -248,6 +248,7 @@
             Controls.Add(panel1);
             Name = "PatientForm";
             Text = "Form1";
+            FormClosing += PatientForm_FormClosing;
             Load += PatientForm_Load;
             ((System.ComponentModel.ISupportInitialize)patientGV).EndInit();
             panel1.ResumeLayout(false);

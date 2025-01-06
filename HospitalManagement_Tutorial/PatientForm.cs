@@ -172,5 +172,10 @@ namespace HospitalManagement_Tutorial
             }
 
         }
+
+        private void PatientForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

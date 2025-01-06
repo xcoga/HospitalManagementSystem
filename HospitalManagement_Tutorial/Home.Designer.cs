@@ -65,6 +65,7 @@
             doctorPicture.SizeMode = PictureBoxSizeMode.StretchImage;
             doctorPicture.TabIndex = 1;
             doctorPicture.TabStop = false;
+            doctorPicture.Click += doctorPicture_Click;
             // 
             // patientPicture
             // 
@@ -75,6 +76,7 @@
             patientPicture.SizeMode = PictureBoxSizeMode.StretchImage;
             patientPicture.TabIndex = 2;
             patientPicture.TabStop = false;
+            patientPicture.Click += patientPicture_Click;
             // 
             // diagnosisPicture
             // 
@@ -85,6 +87,7 @@
             diagnosisPicture.SizeMode = PictureBoxSizeMode.StretchImage;
             diagnosisPicture.TabIndex = 3;
             diagnosisPicture.TabStop = false;
+            diagnosisPicture.Click += diagnosisPicture_Click;
             // 
             // doctorLabel
             // 
@@ -96,6 +99,7 @@
             doctorLabel.Size = new Size(76, 24);
             doctorLabel.TabIndex = 4;
             doctorLabel.Text = "Doctor";
+            doctorLabel.Click += doctorLabel_Click;
             // 
             // patientLabel
             // 
@@ -119,6 +123,7 @@
             diagnosisLabel.Size = new Size(109, 24);
             diagnosisLabel.TabIndex = 6;
             diagnosisLabel.Text = "Diagnosis";
+            diagnosisLabel.Click += diagnosisLabel_Click;
             // 
             // logoutIcon
             // 
@@ -160,6 +165,7 @@
             Controls.Add(label1);
             Name = "Home";
             Text = "Home";
+            FormClosing += Home_FormClosing;
             ((System.ComponentModel.ISupportInitialize)doctorPicture).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientPicture).EndInit();
             ((System.ComponentModel.ISupportInitialize)diagnosisPicture).EndInit();
